@@ -1,26 +1,28 @@
 def print_rangoli(size):
     # your code goes here
-    line_length=(size-1)*4 +1
-    content=""
-    raws=int(line_length/2) +1
-    alphabet=["a","b","c","d","e","f","g","h","i","j","k",'l',"m","n","o","p",'q',"r",'s','t','u','v','w','x','y','z']
-    box=[]
-    for i in range(raws):
-        for j in range(line_length):
-            if i==0:
-                if j==int(line_length/2):
-                    content=content+alphabet[size-1]
-                    a=content
-                else:
-                    content=content+"-"
-            elif j<(line_length/2):
-                for h in range(i):
-                    c=
-                    content=content+"-"
-        if i<raws-1:
-            content=content+"\n"
-    print(content)
-    
-    
+    Alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    line_length=(size*2-1)*2-1
+    middle_of_line=int(line_length/2)
+    n_of_lines=size*2-1
+    middle=n_of_lines/2
+    s=""
+    for i in range(n_of_lines):
+        if i<middle:
+            x=size-i
+            p=x*2-2
+            for k in range(p):
+                s=s+"-"
+            s=s+Alphabet[size-1]
+            print(p)
+            if p<middle_of_line:
+                for k in range(middle_of_line-p,2):
+                    s=s+Alphabet[k]
+            for p in range(x*2-2):
+                s=s+"-"
+            s=s+"\n"
+            
+    print(s)
 
 if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
