@@ -1,6 +1,7 @@
 def print_rangoli(size):
     # your code goes here
     Alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+    alpha_len=len(Alphabet)
     line_length=(size*2-1)*2-1
     middle_of_line=int(line_length/2)
     n_of_lines=size*2-1
@@ -13,10 +14,21 @@ def print_rangoli(size):
             for k in range(p):
                 s=s+"-"
             s=s+Alphabet[size-1]
-            print(p)
+            #print(p)
             if p<middle_of_line:
-                for k in range(middle_of_line-p,2):
-                    s=s+Alphabet[k]
+                for k in range(0,middle_of_line-p):
+                    if k==middle_of_line-p-1:
+                        if k%2!=0:
+                            s=s+Alphabet[size+i-k-2]
+                        else:
+                            s=s+"-"
+                    else:
+                        if k%2!=0:
+                            s=s+Alphabet[somethingsomething]
+                        else:
+                            s=s+"-"
+                      
+                    print(k)
             for p in range(x*2-2):
                 s=s+"-"
             s=s+"\n"
