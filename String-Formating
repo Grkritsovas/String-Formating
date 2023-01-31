@@ -12,16 +12,18 @@ def print_rangoli(size):
         print(mid,p)
         for j in range(p):
             s=s+"-"
-        for j in range(p,row-p+2,2):
+        for j in range(p,mid+1,2):
             if j==row-p+1:
-                s=s+Alpha[size+i-j-2]
+                s=s+Alpha[mid-j+3-i]
             else:
-                s=s+Alpha[size+i-j-2]+"-"
+                s=s+Alpha[mid-j+3-i]+"-"
+        for j in range(mid+1,row-p+2,2):
+            if j==row-p+1:
+                s=s+Alpha[mid+j+3-i]
+            else:
+                s=s+Alpha[mid+j+3-i]+"-"
         for j in range(row-p+2,row+2):
             s=s+"-"
         s=s+"\n"
     print(s)
 
-if __name__ == '__main__':
-    n = int(input())
-    print_rangoli(n)
