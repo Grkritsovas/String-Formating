@@ -1,38 +1,25 @@
 def print_rangoli(size):
     # your code goes here
-    Alphabet=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-    alpha_len=len(Alphabet)
-    line_length=(size*2-1)*2-1
-    middle_of_line=int(line_length/2)
-    n_of_lines=size*2-1
-    middle=n_of_lines/2
+    n=size
+    line=n*2-1
+    row=4*(n-1)-1
+    mid=2*(n-1)+1
     s=""
-    for i in range(n_of_lines):
-        if i<middle:
-            x=size-i
-            p=x*2-2
-            for k in range(p):
-                s=s+"-"
-            s=s+Alphabet[size-1]
-            #print(p)
-            if p<middle_of_line:
-                for k in range(0,middle_of_line-p):
-                    if k==middle_of_line-p-1:
-                        if k%2!=0:
-                            s=s+Alphabet[size+i-k-2]
-                        else:
-                            s=s+"-"
-                    else:
-                        if k%2!=0:
-                            s=s+Alphabet[somethingsomething]
-                        else:
-                            s=s+"-"
-                      
-                    print(k)
-            for p in range(x*2-2):
-                s=s+"-"
-            s=s+"\n"
-            
+    Alpha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    for i in range(line):
+        
+        p=abs(mid-i*2-1)
+        print(mid,p)
+        for j in range(p):
+            s=s+"-"
+        for j in range(p,row-p+2,2):
+            if j==row-p+1:
+                s=s+Alpha[size+i-j-2]
+            else:
+                s=s+Alpha[size+i-j-2]+"-"
+        for j in range(row-p+2,row+2):
+            s=s+"-"
+        s=s+"\n"
     print(s)
 
 if __name__ == '__main__':
