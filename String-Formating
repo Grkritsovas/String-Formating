@@ -1,29 +1,48 @@
 def print_rangoli(size):
+    import math
     # your code goes here
     n=size
     line=n*2-1
     row=4*(n-1)-1
     mid=2*(n-1)+1
     s=""
-    Alpha=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    Alpha=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
     for i in range(line):
         
         p=abs(mid-i*2-1)
-        print(mid,p)
+        
         for j in range(p):
             s=s+"-"
-        for j in range(p,mid+1,2):
+        for j in range(p-p,mid+1-p,2):
             if j==row-p+1:
-                s=s+Alpha[mid-j+3-i]
+                s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)-int(j/2)]
             else:
-                s=s+Alpha[mid-j+3-i]+"-"
-        for j in range(mid+1,row-p+2,2):
-            if j==row-p+1:
-                s=s+Alpha[mid+j+3-i]
+                s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)-int(j/2)]+"-"           
+        for j in range(mid+1-mid-1,row-p+2-mid-1,2):
+            if i==int(line/2):
+                if j==row-p+1:
+                    s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)]
+                else:
+                    if j<row-p+2-mid-2:
+                        s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)-int((row-p)-int(mid+math.ceil(j/2)))+abs(mid-i)-2]+"-"
+                    else:
+                        s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)-int((row-p)-int(mid+math.ceil(j/2)))+abs(mid-i)-2]
             else:
-                s=s+Alpha[mid+j+3-i]+"-"
-        for j in range(row-p+2,row+2):
+                if j==row-p+1:
+                    s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)]
+                else:
+                    if i>int(line/2):
+                        s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)-int((row-p)-int(mid+math.ceil(j/2)))+abs(mid-i)-2]+"-"
+                    else:
+                        s=s+Alpha[abs((n-1)-i)+int((mid-p)/2)-int((row-p)-int(mid+math.ceil(j/2)))+i-1]+"-"
+        for j in range(row-p+1,row):
             s=s+"-"
-        s=s+"\n"
+        if i<line-1:
+            s=s+"\n"
     print(s)
 
+
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
